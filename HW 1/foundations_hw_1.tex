@@ -1,0 +1,172 @@
+\documentclass[10pt]{article} %
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{psfrag}
+\usepackage{amsmath,amssymb,color}
+\usepackage{amsfonts,amstext}
+\usepackage{enumerate}
+
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9in}
+
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+
+\title{Math 214  Homework 1}
+\date{Due date: January 22, 2014}
+\author{Alexander Powell}
+
+
+\begin{document}
+\maketitle
+
+Solve the following problems. Please remember to use complete sentences
+and good grammar. Each problem is 4 points.
+
+
+
+\begin{enumerate}
+\item Write each of the following sets as specified.
+  \begin{enumerate}[(a)]
+  \item List the elements in the set $A=\{n\in \N: n^3<100\}$.
+  
+  \bigskip
+  
+  \noindent {\bf Solution:}  Set $A$ can be written as $A = \{1,2,3,4\}$.
+  
+  \bigskip
+  
+  \item Describe the set $B = \{-3,-2,-1,0,1,2,3\}$ using the notation
+    $\{n : p(n)\}$, where $p(n)$ specifies the property of element $n$.
+    
+  \bigskip
+  
+  \noindent {\bf Solution:}  The set can be described as $B = \{n\in\Z: -3 \leq n \leq 3\}$.
+  \bigskip
+  
+  \end{enumerate}
+
+
+\item Recall that for a set $A$, $\cP(A)$ denotes the power set of $A$.
+  \begin{enumerate}[(a)]
+  \item Find $\cP(\cP(\{1\}))$ and its cardinality.
+  
+  \bigskip
+  
+  \noindent {\bf Solution:} If $\cP(A) = \{\emptyset,\{1\}\}$, then $\cP(\cP(A)) = \{\emptyset,\{\emptyset\},\{\{1\}\},\{\emptyset,\{1\}\}\}$.
+  
+  \bigskip
+  
+  \item Give examples of a set $S$ such that $S\subseteq \cP(\N)$ and $|S|=5$.
+  
+  \bigskip
+  
+  \noindent {\bf Solution:}  The set $S = \{\{1\},\{2\},\{3\},\{4\},\{5\}\}$ has cardinality of 5 and it is a subset of $\cP(\N)$.
+  
+  \bigskip
+  
+  \item Give examples of a set $S$ such that $S\in \cP(\N)$ and $|S|=5$.
+  
+  \bigskip
+  
+  \noindent {\bf Solution:}  The set $S = \{1,2,3,4,5\}$ has cardinality of 5 and belongs to $\cP(\N)$.
+  
+  \bigskip
+  
+  \end{enumerate}
+
+\item The following problems involve set operations.
+  \begin{enumerate}[(a)]
+  \item  Given an example of three sets $A, B$, and $C$ such that $B\not=C$ but $B-A=C-A$.
+  
+  \bigskip
+  
+  \noindent {\bf Solution:}  Let $A = \{1,2\}$, let $B = \{3\}$ and let $C = \{2,3\}$.  
+  
+  \noindent With these three sets, $B-A = C-A = \{3\}$, and $B \neq C$.  
+  
+  \bigskip
+  
+  \item Let $A=\{\emptyset, \{\emptyset\}, \{\{\emptyset\}\}\}$. Find $\{\emptyset, \{\emptyset\}\}\cap A$.
+  
+  \bigskip
+  
+  \noindent {\bf Solution:}  $\{\emptyset, \{\emptyset\}\}\cap \{\emptyset, \{\emptyset\}, \{\{\emptyset\}\}\} = \{\emptyset, \{\emptyset\}\}$
+  
+  \bigskip
+  
+  \end{enumerate}
+
+
+\item For a real number $r$, define $S_r$ to be the interval $[r-1, r+2]$. Let $A=\{1, 3, 4\}$. Determine $\bigcup_{\alpha\in A} S_{\alpha}$ and $\bigcap_{\alpha\in A}S_{\alpha}$.
+
+\bigskip
+
+\noindent {\bf Solution:}  If $A = \{1,3,4\}$ and $S_r$ is the interval $[r-1, r+2]$ then the following can be calculated:
+\begin{center} $S_1 = [1-1,1+2] = [0,3]$ \end{center}
+\begin{center} $S_3 = [3-1,3+2] = [2,5]$ \end{center}
+\begin{center} $S_4 = [4-1,4+2] = [3,6]$ \end{center}
+Therefore, $\bigcup_{\alpha\in A} S_{\alpha} = [0,3]\cup[2,5]\cup[3,6] = [0,6]$ and 
+$\bigcap_{\alpha\in A}S_{\alpha} = [0,3]\cap[2,5]\cap[3,6] = \{3\}$.
+
+\bigskip
+
+\item For two sets $A$ and $B$, recall that $A \times B$ is the
+  Cartesian product of $A$ and $B$.
+  \begin{enumerate}[(a)]
+  \item Let $A=\{a, b\}$. Determine $A\times \cP(A)$.
+  \bigskip
+  
+  \noindent {\bf Solution:}  If $A = \{a,b\}$ and $\cP(A) = \{\{a,b\},\{a\},\{b\},\emptyset\}$ then \begin{center} $A\times \cP(A) = \{a,b\} \times \{\{a,b\},\{a\},\{b\},\emptyset\}$ \end{center}
+  \begin{center} $= \{(a,\{a,b\}),(a,\{a\}),(a,\{b\}),(a,\emptyset),(b,\{a,b\}),(b,\{a\}),(b,\{b\}),(b,\emptyset)\}$  \end{center}
+  
+  \bigskip
+  
+  \item Let $A = \{0,1\}$ and $B = [0,2] \cap [1,3]$. Describe the graph
+    of $A \times B$.
+  \bigskip
+  
+  \noindent {\bf Solution:}  The graph of $A \times B$ is the union of two parallel line segments, one from $(0,1)$ to $(0,2)$ and the other from $(1,1)$ to $(1,2)$.  
+  
+  \bigskip
+  
+  \item Let $A = \{0,1\}$, $B = (0,1) \cap A$ and $C = \R$. What is $A
+    \times B \times C$.
+  \end{enumerate}
+
+
+\item Determine all different partitions of the set $\{1,2,3\}$.
+\bigskip
+
+\indent {\bf Solution:}  All partitions of the set $\{1,2,3\}$ are listed below:
+\begin{center}\{\{1\},\{2\},\{3\}\}\end{center}
+\begin{center}\{\{1,2\},\{3\}\}\end{center}
+\begin{center}\{\{1,3\},\{2\}\}\end{center}
+\begin{center}\{\{1\},\{2,3\}\}\end{center}
+\begin{center}\{\{1,2,3\}\}\end{center}
+
+\bigskip
+
+
+
+
+\end{enumerate}
+
+\end{document}
+
+\item  Consider three statements:
+
+\begin{equation*}
+\text{ $P$: $15$ is odd, \;\; $Q$: $21$ is prime, \;\; and $R$: $\frac{1}{2} \in \N$.  }
+\end{equation*}
+
+State each of the following in words, and determine whether they are true or false.
+  \begin{enumerate}[(a)]
+  \item $P\vee Q$
+  \item $P\wedge Q$
+  \item $(\sim{P})\vee Q$
+  \item $P\wedge (\sim Q \vee R)$
+  \end{enumerate}

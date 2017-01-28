@@ -1,0 +1,249 @@
+\documentclass[10pt]{article} %
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{psfrag}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumerate}
+\usepackage{color}
+
+\topmargin=-0.5in
+\headsep=0.1in
+\headheight=0.1in
+\textwidth=7in
+\textheight=9.5in
+\footskip=0.2in
+\oddsidemargin -0.3in
+
+
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\points}[1]{{\it (#1 Points)}}
+\newcommand{\tpoints}[1]{{\bf #1 Total points.}}
+
+%old macro syntax
+\def\red#1{\textcolor{red}{#1}}
+\def\blue#1{\textcolor{blue}{#1}}
+
+\title{Math 214 -- Foundations of Mathematics\\
+Homework 9\\
+{\large{\bf Due April 3rd}}}
+\date{}
+\author{Alexander Powell}
+
+%\newcommand{\Not}[1]{#1{\bf \kern-0.6em/}}
+\newcommand{\Not}[1]{#1\kern-0.6em/}
+
+\begin{document}
+\maketitle
+
+Solve the following problems.  Please remember to use complete sentences
+and good grammar.
+
+%{\it \blue{Corrections in blue.}}
+
+\begin{enumerate}
+
+\item  \points{4} Solve the following problems in $\Z_n$.
+\begin{enumerate}
+\item In $\Z_8$, express the following sums and products as $[r]$, where $0\le r<8$:
+ $$[3]+[6],   [3]\cdot [6],  [-13]+[138], [-13]\cdot[138]$$
+  
+ \noindent {\bf Solution:} First, we know that $\Z_8=\{[0],[1],[2],[3],[4],[5],[6],[7]\}$.  So it follows that: 
+ 
+ $[3]+[6]=[1]$,
+ 
+ $[3]\cdot [6]=[2]$,
+ 
+ $[-13]+[138]=[5]$, and 
+ 
+ $[-13]\cdot[138]=[6]$
+ 
+\item Let $[a], [b]\in \Z_8$. If $[a]\cdot [b]=[0]$, does it follow that $[a]=[0]$ or $[b]=[0]$?
+
+\noindent {\bf Solution:} No, because if, for example, you let $[a]=[2]$ and $[b]=[4]$, it is evident that $[a]\cdot [b]=[0]$ while neither$[a]$ not $[b]$ equal $[0]$.  
+\end{enumerate}
+
+\item \points{4} Prove that for any prime $p$,  if $[a], [b]\in \Z_p$, then
+$[a]\cdot [b]=[0]$ implies $[a]=[0]$ or $[b]=[0]$.
+
+\noindent {\bf Solution:} 
+\begin{proof} If $[a], [b]\in \Z_p$, then $\exists k \in \Z$ such that $a \cdot b=P \cdot k$.  Then it follows that $P|(a \cdot b)$.  So now we just need to prove that $P|a$ or $P|b$.  From theorem 11.14, we have that if $a|bc$ then either $a|b$ or $a|c$.  Hence, it follows that for any prime $p$,  if $[a], [b]\in \Z_p$, then
+$[a]\cdot [b]=[0]$ implies $[a]=[0]$ or $[b]=[0]$.  
+\end{proof}
+
+\item \points{4} Prove that the multiplication in $Z_n$, $n\ge 2$, defined by $[a]\cdot [b]=[ab]$ is well-defined. (See Theorem 8.9 for the case of addition, and Result 4.11)
+
+\noindent {\bf Solution:} 
+
+\begin{proof} Let $[a],[b],[c],[d] \in \Z_n$, where $[a]=[b]$ and $[c]=[d]$.  Now we prove that [ac]=[bd].  It follows that $a \equiv c$ (mod n) and $b \equiv d$ (mod n).  Thus, $ab \equiv cd$ (mod n) from result 4.11.  So, we can conclude that $ab R cd$ which implies that $[ab]=[cd]$.  Hence, multiplication in $\Z_n$ is well-defined.  
+\end{proof}
+
+\item \points{4} Let $p$ be a positive prime number and let $f: \Z_p\to \Z_p$ be
+  defined as $f([x])=[x^2]$.  Show that $f$ is a function.  Give
+  examples to show that it is not necessarily injective or surjective.  
+  
+  \noindent {\bf Solution:}
+  \begin{proof} First we prove that $f$ is a function:
+  i) $\forall [x] \in \Z_p, \exists [y] \in \Z_p$ such that $([x],[y])\in f$.  It is clear that $([x],[x^2]) \in f$, so f passes the first condition of being a function.  
+  ii) Next, if $[x]=[y]$, then $[x^2]=[y^2]$.  
+  
+  Then, $x=y+kp$ and $x^2=(y+kp)2=(y+kp)(y+kp)=y^2+2ykp+(kp)^2$, which equals $y^2+pm$ for some $m\in \Z$.  Hence, $f$ is a well-defined function.  
+  
+  
+  %i) $\forall [x] \in \Z_p, \exists[y]=[x^2]$
+  %ii) If $([x],[y]) \in f, [y]=[x^2]$ and if $([x],[z]) \in f, [z]=[x^2]$, which imples that $[y]=[z]$
+  
+  Next we show that $f$ is not necessarily injective or surjective.  
+  
+  First, an example to show $f$ is not injective: Let $p=5$, then, 
+  $$f([0])=[0]$$ and $$f([5])=[5^2]=[25]=[0]$$, so $f$ is not injective.  
+  
+  No we show that $f$ is not surjective:
+  This can be demonstrated by letting $y=-5$.  There is no $x$ such that $[x^2]=[-5]$.    
+  \end{proof}
+  
+  
+
+%\item\points{4} Let $f: \R \times \R \rightarrow \R \times \R$ where, for $(a,b)
+  %\in \R\times\R$, $f(a,b) = (2a+7, 3b - 3)$.  Prove that $f$ is bijective.
+
+\item \points{4}   Consider the function $f(x)=\displaystyle\frac{3x-5}{x+2}$.
+    \begin{enumerate}
+      \item Determine the domain $D(f)\subseteq \R$ and range $R(f)\subseteq \R$ of the function $f$.
+      
+      \noindent {\bf Solution:} The only restrictions on the domain of $f$ are that the denominator of the functions cannot equal to $0$, or $x+2\neq0$, or $x\neq-2$.  So, the domain of $f$ is all $x\in\R$ not equal to $2$.  The range of the function is all real numbers, or $\R$.  
+      
+      \item Prove that the function $f:D(f)\to R(f)$ is bijective.
+    \end{enumerate}
+    
+    \noindent {\bf Solution:} To prove that $f$ is bijective we must prove that it is both injective and surjective.  To prove it is injective we examine the equation:
+    
+    $$\frac{3x-5}{x+2}=\frac{3y-5}{y+2}$$
+    
+    Which can be rewritten as $(3x-5)(y+2)=(3y-5)(x+2)$, 
+    
+    which multiplies out to $3xy+6x-5y-10=3xy+6y-5x-10$
+    
+    $3xy+6x-5y=3xy+6y-5x$
+    
+    $6x-5y=6y-5x$
+    
+    $11x=11y$
+    
+    $x=y$, so $f$ is injective.  
+    
+    Next, we prove that $f$ is surjective.  If $f(x)=\frac{3x-5}{x+2}$, let $x\in\R$.  So, $\forall y\in \R$, we try to find $x\in\R$ such that $f(x)=y$.  Set $\frac{3x-5}{x+2}=y$.  Then:
+    
+    $3x-5=y(x+2)$
+    
+    $-5=y(x+2)-3x$
+    
+    $-5=xy+2y-3x$
+    
+    $-5-2y=xy-3x$
+    
+    $\frac{-5-2y}{y-3}=x$ or $x=\frac{2y+5}{3-y}$
+    
+    So, $\forall y \in \R$, let $x=\frac{2y+5}{3-y}$, proving $f$ is surjective.  And since we have shown that $f$ is surjective and injective, we can say that $f$ is bijective.  
+    
+
+
+\item \points{4}
+\begin{enumerate}
+  \item Prove that the function $f(x)=x^2-2x+3$, with domain $x\in \R$, is neither  injective nor  surjective.
+  
+  \noindent {\bf Solution:}
+  \begin{proof} First we prove that $f$ is not injective:
+  
+  Suppose: $f(x)=f(y)$ or $x^2-2x+3=y^2-2y+3$
+  
+  $x^2-2x=y^2-2y$
+  
+  $x^2-y^2-2x+2y=0$
+  
+  $(x^2-y^2)+(-2x+2y)=0$
+  
+  $(x+y)(x-y)-2(x-y)=0$
+  
+  $(x-y)(x+y-2)=0$
+  
+  Now, let $x=0$ and $x=2$ so that:
+  
+  $f(0)=0^2-2(0)+3$ and $f(2)=2^2-2(2)+3=3$.  So, $f$ is not injective since $f(0)=f(2)=3$.  
+  
+  Next we prove that $f$ is not surjective.  
+  
+  Set $x^2-2x+3=y$
+  
+  $x^2-2x+1-1+3=y$
+  
+  $(x-1)^2=y-2$
+  
+  So, $\forall x\in \R$, $(x-1)^2\geq0$.  Now, choose $y=-15$, then $y-2=-15-2=-17<0$.  
+  
+  This implies that for $y=-15$, $\forall x\in \R, x^2-2x+3 \neq -15$.  So, $f:\R \to \R$ is not surjective.  
+  
+  \end{proof}
+  
+  \item Prove that the function $f(x)=x^2-2x+3$, with domain $x\in (-\infty,0)$, is a bijection from $(-\infty,0)$ to its range. What is the range of $f(x)$? Determine the inverse function $f^{-1}(x)$, its domain and range.
+  
+  \noindent {\bf Solution:} To prove something is bijective, we must prove it is injective and surjective.  To prove it is injective:
+  
+  Suppose $f(x)=f(y), x,y\in A$.  Then
+  
+  $x^2-2x+3=y^2-2y+3$
+  
+  $(x-y)(x+y-2)=0$ 
+  
+  Since $x>0$ and $y>0$, then either $x-y>0$ or $x+y-2\geq-2$.  Now, recall the axiom: $a,b \in \R, a \cdot b=0 \implies a=0 \vee b=0$.  Then $x-y=0$ so $x=y$.  So, $f$ is injective from $(- \infty,0)$.  
+  
+  Next we prove surjectivity:
+  
+  Solving $x^2-2x+3=y$, we get $(x-1)^2=y-2$ and $y-2>0$ so $\sqrt{y-2} \in\R$, or $x=1\pm \sqrt{y-2}$.  
+  
+  Choose $x=1\pm \sqrt{y-2} \in A$, then $$f(1\pm \sqrt{y-2})=(1\pm 
+\sqrt{y-2})^2-2(1\pm \sqrt{y-2})+3=y$$, so $f$ is surjective.  
+
+Also, the range of $f(x)$ is $[2,\infty)$.  
+
+To find the inverse of $f(x)$, we solve for the variable $x$, and then switch the variables, as shown below.  
+
+$x=y^2-2y+3$
+
+$y^2-2y=x-3$
+
+$y^2-2y+1-1=x-3$
+
+$\sqrt{(y-1)^2}=\pm \sqrt{x-2}$
+
+$y=1\pm \sqrt{x-2}$
+
+So, $f^{-1}(x)=1\pm \sqrt{x-2}$ and the domain of $f^{-1}(x)$ is $[2,\infty)$ and the range is the set of all real numbers.  
+
+  
+\end{enumerate}
+
+%\item \points{extra 4} A sequence $(a_n)$ is defined by $a_0 = -1$, $a_1 = 0$, and $a_{n+1} = a^2_n-(n+1)^2a_{n-1}-1$. for all positive integers $n$. Find an explicit formula for $a_n$ and use mathematical induction to prove it.
+
+
+\end{enumerate}
+
+
+
+\end{document}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

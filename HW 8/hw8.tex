@@ -1,0 +1,221 @@
+\documentclass[10pt]{article} %
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{psfrag}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{color}
+
+\topmargin=-0.5in
+\headsep=0.1in
+\headheight=0.1in
+\textwidth=7in
+\textheight=9.5in
+\footskip=0.2in
+\oddsidemargin -0.3in
+
+
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\points}[1]{{\it (#1 Points)}}
+\newcommand{\tpoints}[1]{{\bf #1 Total points.}}
+
+%old macro syntax
+\def\red#1{\textcolor{red}{#1}}
+\def\blue#1{\textcolor{blue}{#1}}
+
+\title{Math 214 -- Foundations of Mathematics\\
+Homework 8\\
+{\large{\bf Due March 27}}}
+\date{}
+\author{Alexander Powell}
+
+%\newcommand{\Not}[1]{#1{\bf \kern-0.6em/}}
+\newcommand{\Not}[1]{#1\kern-0.6em/}
+
+\begin{document}
+\maketitle
+
+Solve the following problems.  Please remember to use complete sentences
+and good grammar.
+
+%{\it \blue{Corrections in blue.}}
+
+\begin{enumerate}
+
+
+
+\item \points{4} A sequence $\{a_n\}$ is defined recursively by $a_1=1, a_2=4, a_3=9$, and $$a_n=a_{n-1}-a_{n-2}+a_{n-3}+2(2n-3)$$ for $n\ge 4$.  Conjecture a formula for $a_n$ and prove that your conjecture is correct using Strong Principle of Mathematical Induction.
+
+\bigskip
+
+\noindent {\bf Solution:} First, let's examine the first several entries of the recursive function:
+
+$a_4=a_3-a_2+a_1+2(2(4)-3)=16$
+
+$a_5=a_4-a_3+a_2+2(2(5)-3)=25$
+
+$a_6=a_5-a_4+a_3+2(2(6)-3)=36$
+
+$a_7=a_6-a_5+a_4+2(2(7)-3)=49$
+
+From these results, we can form the conjectures that $a_n=n^2, \forall n \in \N$
+
+\begin{proof} We will prove this with strong PMI:
+
+If $a_n=a_{n-1}-a_{n-2}+a_{n-3}+2(2n-3)$ then $\forall n \in \N, a_n=n^2$.  
+
+{\bf Step 1:} When $n=4$, $a_1=4^2=16$, which matches our result from above.  
+
+{\bf Step 2:} Suppose $a_n=n^2$ is true for $1 \leq n \leq k$, then for $n=k+1$: 
+$$a_{k+1}=a_{(k=1)-1}-a_{(k+1)-2}+a_{(k+1)-3}+2(2(k+1)-3)$$
+
+$$=a_k-a_{k-1}+a_{k-2}+4k-2=k^2-(k-1)^2+(k-2)^2+4k-2$$
+
+$$=k^2-k^2+2k-1+k^2-4k+4+4k-2=k^2+2k+1=(k+1)(k+1)=(k+1)^2$$
+
+Hence, it is true for $n=k+1$.  
+
+{\bf Step 3:} From the strong PMI, we have proven that $\forall n \in \N, a_n=n^2$.  
+
+\end{proof}
+
+
+\item (12 points)  %Prove that $8|(5^{2n}-1)$ for every positive integer $n$.
+Use Strong Mathematical Induction Principle to prove that if $a_1=1$, $a_2=2$,
+and $a_{n+1}=a_n+a_{n-1}$ for $n\ge 2$, then $a_n<2^n$ for $n\in \N$.
+
+\bigskip
+
+\noindent {\bf Solution:}
+
+The above statement can be rewritten as: $$a_n=a_{n-1}+a_{n-2}, n \geq 3$$
+\begin{proof} $\forall n \in \N, a_n<2^n$
+{\bf Step 1:} 
+
+$n=1, a_1=1<2^1$ and 
+
+$n=2, a_2=2<2^2=4$ so it holds for the base step.  
+
+{\bf Step 2:} Suppose $a_n<2^n$ is true for $n=k$ then for $n=k+1$:
+$$a_{k+1}=a_{(k+1)-1}+a_{(k+1)-2}=a_k+a_{k-1}<2^k+2^{k-1}$$
+$$=2 \cdot 2^{k-1}+2^{k-1}=2^{k-1} \cdot (2+1)=3 \cdot 2^{k-1}<2^k+2^{k-1}<2^k+2 \cdot 2^{k-1}=2^k+2^k=2 \cdot 2^k=2^{k+1}$$
+
+{\bf Step 3:} From strong PMI, we have proven that if $a_1=1$, $a_2=2$,
+and $a_{n+1}=a_n+a_{n-1}$ for $n\ge 2$, then $a_n<2^n$ for $n\in \N$.  
+
+\end{proof}
+
+    \item \points{4}  A relation $R$ is defined on $\Z$ by $(x,y)\in R$ if $x | y$. Prove or disprove the following:  (a) $R$ is reflexive,  (b) $R$ is symmetric,  (c) $R$ is transitive.
+    
+    \bigskip
+    
+    \noindent {\bf Solution:} 
+    
+    a) $R$ is reflexive: $R$ is reflexive if $x|x$, which we know is always true since any number can divide into itself.  So, $R$ is reflexive.  
+    
+    b) $R$ is symmetric: $R$ is symmetric if $x|y$ and $y|x$.  This is not true because if we let $x=3$ and $y=6$, we get that $3|6$ which is true because $\exists x \in \Z$, in this case $2$ such that $6=3 \cdot 2$.  However, $6\not| 3$ because there is no integer that solves the following equation: $3=6 \cdot m$.  Therefore, $R$ is not symmetric.  
+    
+    c) $R$ is transitive: $R$ is transitive if the following holds true: If $x|y$ and $y|z$, then $x|z$.  From result $4.1$, if $a,b,c \in \Z$ and $a\neq 0$ and $b\neq0$, then if $a|b$ and $b|c$, then $a|c$.  So, we can conclude that $R$ is transitive.  
+
+\item \points{4} A relation $R$ is defined on $\Z$ by $(a, b) \in R$  if $3|(x+y)$. Prove or disprove the following:  (a) $R$ is reflexive,  (b) $R$ is symmetric,  (c) $R$ is transitive. (In the case of disprove, provide a concrete example.)
+
+\bigskip
+
+\noindent {\bf Solution:} 
+
+a) $R$ is reflexive: $R$ is not reflexive because if it was, then $3|(x+x)$.  If we choose x to be, say, $2$, then $2+2=4$ and $3\not |4$.  So, $R$ is not reflexive.  
+
+b) $R$ is symmetric: If $3|(x+y)$ then $\exists m \in \Z$ such that $x+y=3m$.  Now, $y+x=3m$ and it is true that $3|3m$, hence $yRx$.  
+
+c) $R$ is transitive: Suppose $xRy$ and $yRz$.  Let $x=2, y=1, and z=8$.  Then we have that $3|(2+1)$ and $3|(1+8)$ but $3\not|(2+8)$ because there does not exist an integer, $m$, such that $3m=10$.  So, $R$ is not transitive.  
+
+\item \points{4} Let $S$ be a nonempty subset of $\Z$, and let $R$ be a relation defined on $S$ by $x R y$ if $3 | (x+2y)$.
+\begin{enumerate}
+\item Prove that $R$ is an equivalence relation.
+
+\bigskip
+
+\noindent {\bf Solution:} To prove that $R$ is an equivalence relation, we have to prove 3 cases: that $R$ is reflexive, symmetric, and transitive:
+
+1) $R$ is reflexive: This is true, since $\forall x \in \Z, x+2x=3x$ and $3|3x$.  So, $xRx$.  
+
+2) $R$ is symmetric: Suppose $xRy$, then $3|(x+2y)$, thus $\exists m \in \Z$ such that $x+2y=3m$.  This leaves us with: 
+$$y+2x=3(x+y)-(x+2y)=3(x+y)-3m=3(x+y-m)$$
+Hence, $3|(y+2x)$ so $yRx$.  
+
+3) $R$ is transitive: If $xRy$ and $yRz$, then $xRz$.
+$$x+2y=3m, y+2z=3n, m,n \in \Z$$
+Adding the two, we get: 
+
+$x+3y+2z=3(m+n)$, so $x+2z=3(m+n-y)$.  Hence, $R$ is transitive, so $xRz$.  
+
+\item If $S=\{-7, -6, -2, 0, 1, 4, 5, 7\}$, then what are the distinct equivalence classes in this case?
+
+\bigskip
+
+\noindent {\bf Solution:} The equivalence classes are as follows:
+
+$[0]=\{0,-6\} = [-6]$
+
+$[1]=\{1,4,-7\} = [4]$
+
+$[5]=\{5,-7\} = [-7]$
+
+$[7]=\{7,-2,1,4\} = [-2]$
+
+\end{enumerate}
+
+\item \points{4} Let $S=\R^2$. Define a relation $R$ by $(x_1,y_1) R (x_2,y_2)$ if $|x_1|+|y_1|=|x_2|+|y_2|$.
+Prove that $R$ is an equivalence relation. Determine the  equivalence classes of $R$ and describe
+the geometric property of each equivalence class. What is the geometric shape of the equivalent class $(x,y)=(1,1)$ belonging to?
+
+\bigskip
+
+\noindent {\bf Solution:} To prove that $R$ is an equivalence relation, we have to prove 3 cases: that $R$ is reflexive, symmetric, and transitive:
+
+1) Reflexive: $\forall(x_1,y_1)\in\R^2$, $|x_1|+|y_1| = |x_1|+|y_1|$.  This is clearly the case, so $(x_1,y_1)R(x_1,y_1)$.  
+
+2) Symmetric: If $|x_1|+|y_1|=|x_2|+|y_2|$ then $|x_2|+|y_2|=|x_1|+|y_1|$.  Again, this is intuitively clear, so $(x_1,y_1)R(x_2,y_2)$.  
+
+3) Transitive: If $|x_1|+|y_1|=|x_2|+|y_2|$ and $|x_2|+|y_2|=|x_3|+|y_3|$ then If $|x_1|+|y_1|=|x_3|+|y_3|$.  Once again, this is true so $(x_1,y_1)R(x_3,y_3)$.  
+
+From the three steps above, we have proven that $R$ meets the criteria for being an equivalence relation.  Its equivalence classes can be expressed as $$[(x_1,y_1)]=\{(x_2,y_2)\in\R^2:|x_2|+|y_2|=|x_1|+|y_1|\}$$
+If we let $x=y=1$, we have $[(1,1)]=\{(x,y)\in|R^2:|x|+|y|=2\}$.  So, every equivalence class is a graph of a square centered at the origin, or $(0,0)$ and a side length of $2 \cdot (|x|+|y|)$.  The only exception is $[(0,0)]=\{(0,0)\}$, which can be thought of as a point in $\R^2$ or a square with side length equal to $0$.  
+
+So, the equivalence classes are concentric squares centered at $(0,0)$ with side length $R\in[0,\infty)$ and there are infinitely many distinct equivalence classes.  
+
+%\item \points{extra 2} Let $x\in \R$ and $x>0$. Prove that there exists a rational number between $2x$ and $3x$.
+
+
+%\item \points{4}
+%\begin{enumerate}
+ % \item Prove that the function $f(x)=x^2-2x+3$, with domain $x\in \R$, is neither  injective nor  surjective.
+ % \item Prove that the function $f(x)=x^2-2x+3$, with domain $x\in (-\infty,0)$, is a bijection from $(-\infty,0)$ to its range. What is the range of $f(x)$? Determine the inverse function $f^{-1}(x)$, its domain and range.
+%\end{enumerate}
+
+\item \points{extra 2} A sequence $(a_n)$ is defined by $a_0 = -1$, $a_1 = 0$, and $a_{n+1} = a^2_n-(n+1)^2a_{n-1}-1$, for all positive integers $n$. Find an explicit formula for $a_n$ and use mathematical induction to prove it.
+
+
+\end{enumerate}
+
+
+
+\end{document}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

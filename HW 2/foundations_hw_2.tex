@@ -1,0 +1,231 @@
+\documentclass[10pt]{article} %
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{psfrag}
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9in}
+
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+
+\title{Math 214 Homework 2}
+\date{Due:  Jan. 29, 2014}
+\author{Alexander Powell}
+
+
+\begin{document}
+\maketitle
+
+Solve the following problems.  Each problem is 4 points.
+
+\begin{enumerate}
+
+\item  Consider three statements:
+
+\begin{equation*}
+\text{ $P$: $15$ is odd, \;\; $Q$: $21$ is prime, \;\; and $R$: $\frac{1}{2} \in \N$.  }
+\end{equation*}
+
+State each of the following in words, and determine whether they are true or false.
+  \begin{enumerate}[(a)]
+  \item $(\sim{P})\vee Q$
+  
+  \bigskip
+  
+  \noindent {\bf  Solution:}  15 is not odd or 21 is prime.  This statement is False.  
+  
+  \bigskip
+  
+  \item $P\wedge (\sim Q \vee R)$
+  
+  \bigskip
+  
+  \noindent {\bf  Solution:}  15 is odd and 21 is not prime or $\frac{1}{2}$ is a natural number.  This statement is True
+  
+  \bigskip
+  
+   \item $(P \wedge Q) \Rightarrow (\sim R)$
+   
+   \bigskip
+   
+   \noindent {\bf  Solution:}  15 is odd and 21 is prime implies that $\frac{1}{2}$ is not a natural number.  This statement is True.  
+   
+   \bigskip
+   
+   \item $(P \vee Q) \Leftrightarrow R$
+   
+   \bigskip
+   
+   \noindent {\bf  Solution:}  15 is odd or 21 is prime if and only if $\frac{1}{2}$ is a natural number.  This statement is False.  
+   
+   \bigskip
+   
+   %\item $(\sim Q) \Rightarrow (\sim P)$.
+ \end{enumerate}
+
+ \item Consider a statement: \lq\lq If I finish my homework, then I will go to the mall or I will play tennis unless it rains.\rq\rq
+     \begin{enumerate}
+       \item Define statements $P,Q,R,S$ so that the above statement is in a form $(P \wedge Q) \Rightarrow (R \vee S)$.
+       
+       \bigskip
+       
+       \noindent {\bf  Solution:}  
+       
+       $P$: I finish my homework
+       
+       $Q$: It does not rain
+       
+       $R$: I will play tennis
+       
+       $S$: I will go to the mall
+       
+       \bigskip
+       
+       \item Find the negation of $(P \wedge Q) \Rightarrow (R \vee S)$ by using Theorems 2.18 and 2.21, and write the negation of statement above in words.
+       
+       \bigskip
+       
+       \noindent {\bf  Solution:}  The negation of $(P \wedge Q) \Rightarrow (R \vee S)$ is written below:
+       \begin{center} $\sim(\sim(P \wedge Q) \vee (R \vee S))$ \end{center}
+       \begin{center} = $(\sim(\sim(P \wedge Q)) \wedge \sim(R \vee S))$ \end{center}
+       \begin{center} = $((P \wedge Q) \wedge ((\sim R) \wedge (\sim S)))$ \end{center}
+       \begin{center} = $(P \wedge Q \wedge \sim R \wedge \sim S)$ \end{center}
+       \begin{center} I will finish my homework and it will not rain and I will not play tennis and I will not go to the mall.  \end{center}
+       
+       \bigskip
+       
+     \end{enumerate}
+
+ \item
+\begin{enumerate}
+ \item For the open sentence $P(x): 3x-2>4$ over the domain $\Z$, determine the values of $x$ for which $P(x)$ is true.
+ 
+ \bigskip
+ 
+ \noindent {\bf  Solution:}  \begin{center} $P(x): 3x-2>4$ \end{center}
+ \begin{center} $3x>6$ \end{center}
+ \begin{center} $x>2$ \end{center}
+ \begin{center} Therefore $P(x)$ is true for the values of $x>2$ over the domain $\Z$.  \end{center}
+ \begin{center} Alternatively, $P(x)$ is true for $A = \{x>2, x \in \Z\}$.  \end{center}
+ 
+ \bigskip
+ 
+  \item Express the following quantified statement in logic symbols: For every integer $n\ge 2$, there exists an integer $m$ such that $n<m<2n$.
+  
+  \bigskip
+  
+  \noindent {\bf  Solution:}  \begin{center}  Let $S = \{n \in \Z : n \geq 2\}$ \end{center}
+  \begin{center}  $\forall n \in S, \exists m \in \Z, n < m < 2n$ \end{center}
+    
+  \bigskip
+  
+  %\item The negation of \lq\lq For every set $A$, $A \cap \bar{A} =\emptyset$.\rq\rq
+\end{enumerate}
+
+\item For statements $P,Q$ and $R$, use a truth table to show that $P \Rightarrow (Q \vee R)$ and $(\sim Q)\Rightarrow ((\sim P) \vee R)$ are logically equivalent. (Hint: use sample homework tex file for typing a truth table)
+
+\bigskip
+
+\noindent {\bf  Solution:}  
+\begin{equation*}
+ \begin{tabular}{|c|c|c|c|c|c|c|c|c|}\hline
+ P & Q & R & $Q \vee R$ &  $P\vee R$  &  $\sim P$ & $(\sim P) \vee R$ & $P \Rightarrow (Q \vee R)$ & $\sim Q \Rightarrow ((\sim P) \vee R)$   \\ \hline
+ T & T & T & T          &  T          &  F        & T                 & T                          & T  \\
+ T & T & F & T          &  T          &  F        & F                 & T                          & T  \\
+ T & F & T & T          &  T          &  F        & T                 & T                          & T  \\
+ T & F & F & F          &  T          &  F        & F                 & F                          & F  \\
+ F & T & T & T          &  T          &  T        & T                 & T                          & T  \\
+ F & T & F & T          &  F          &  T        & T                 & T                          & T  \\
+ F & F & T & T          &  T          &  T        & T                 & T                          & T  \\
+ F & F & F & F          &  F          &  T        & T                 & T                          & T  \\ \hline
+  \end{tabular}
+ \end{equation*}
+ 
+ Therefore, $P \Rightarrow (Q \vee R)$ and $\sim Q \Rightarrow ((\sim P) \vee R)$ are logically equivalent.  
+
+\bigskip
+
+ \item In each of the following, two open sentences $P(x)$ and $Q(x)$ over a domain $S$ are given.  For each part, determine $T = \{x \in S : P(x)\Rightarrow Q(x) \text{ is true}\}$.
+ \begin{enumerate}
+ \item $P(x):x-3=4$; \;\; $Q(x): x\ge 8$; \;\;  $S=\R$.
+ 
+ \bigskip
+ 
+ \noindent {\bf  Solution:}  $T = (- \infty, 7) \cup (7, \infty)$
+ 
+ \bigskip
+ 
+ \item $P(x): x\in [-1,2]$; \;\;  $Q(x): x^2\le 2$; \;\;  $S=[-1,1]$.
+ 
+ \bigskip
+ 
+ \noindent {\bf  Solution:}  $T = (- \infty, \sqrt 2] \cup (2, \infty)$
+ 
+ \bigskip
+ 
+ \end{enumerate}
+
+
+\item Consider the quantified statement: There exists an integer $n$ such that $n$ is odd and $n^3$ is even.
+    \begin{enumerate}
+      \item Express the   statement above in logic symbols.
+      
+      \bigskip
+      
+      \noindent {\bf  Solution:} \begin{center} $O= \{2n+1 : n \in \Z\}$ \end{center}
+      \begin{center} And $E= \{2n : n \in \Z\}$ \end{center}
+      
+      \begin{center} $(\exists n \in \Z) \wedge (n \in O) \wedge (n^3 \in E)$ \end{center}
+            
+      \bigskip
+      
+      \item Write the negation of the statement above in logic symbols and in words.
+      
+      \bigskip
+      
+      \noindent {\bf  Solution:}  The negation of the statment above is:
+      
+      \begin{center} $\sim ((\exists n \in \Z) \wedge (n \in O) \wedge (n^3 \in E))$\end{center}
+      
+      \begin{center} $ \equiv (\forall n \in \Z) \vee (n \notin O) \vee (n^3 \notin E)$ \end{center}
+      \begin{center}  In words, for every $n \in \Z$, n is not odd or $n^3$ is not even.  \end{center}
+      
+      \bigskip
+      
+    \end{enumerate}
+
+
+
+
+%\item For $\alpha \in \R$, let $S_\alpha = (-\alpha,\alpha)$. Prove or disprove the following statements.
+%\begin{enumerate}
+%\item $\forall \alpha \in (0,1), \exists \beta \in (0,1), S_\alpha\subset S_\beta$ (note that $\subset$ and $\subseteq$ are not the same).
+%\item $\exists \alpha \in (0,1), \forall \beta \in (0,1), S_\alpha \subset S_\beta.$
+%\end{enumerate}
+
+%\item Let $A, B, C$ be sets. Prove that $(A-B)\cup (A-C)=A-(B\cap C)$.
+
+%\item Let $A, B, C$ and $D$ be sets. Prove that
+%\begin{equation*}
+%(A\times B)\cap (C\times D)=(A\cap C)\times (B\cap D).
+%\end{equation*}
+
+\item (extra credit) A very special island is inhabited only by knights and knaves. Knights always tell the truth, and knaves always lie. You meet three inhabitants: Bozo, Carl and Joe. Bozo says that Carl is a knave. Carl tells you, \lq Of Joe and I, exactly one is a knight.\rq\ Joe claims, \lq Bozo and I are different.\rq Who are knights, and who are knaves? (To get full credit, you need to use a truth table)
+
+\end{enumerate}
+
+
+
+\end{document}
+
+

@@ -1,0 +1,268 @@
+\documentclass[10pt]{article} %
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{psfrag}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9in}
+
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\points}[1]{{\it (#1 Points)}}
+\newcommand{\tpoints}[1]{{\bf #1 Total points.}}
+
+\title{Math 214 -- Foundations of Mathematics\\
+Homework 7\\
+{\large{\bf Due March 20, 2014}}}
+\date{}
+\author{Alexander Powell}
+
+
+\begin{document}
+\maketitle
+
+
+
+\begin{enumerate}
+
+%\item  \points{4}  \begin{enumerate}
+  %\item Let $n\in \N$. Prove that either $n^2 \equiv 0$ (mod $4$) or $n^2 \equiv 1$ (mod $4$). (Hint: two cases of even and odd numbers)
+  %\item Prove that the sum of squares of two odd numbers cannot be a square.
+%\end{enumerate}
+
+
+
+
+\item   \points{4} Use induction to prove that, for all $n \in \N$, $$\sum_{i=1}^n i(i+1) = \frac{n(n+1)(n+2)}{3}.$$
+
+\bigskip
+
+\begin{proof}
+
+\noindent {\bf Solution:} We prove by mathematical induction:
+
+{\bf Step 1:} When $n=1$, the left hand side of the equation can be written as $1(1+1) = 2$ and the right hand side of the equation can be written as $\frac{1(1+1)(1+2)}{3} = \frac{1 \cdot 2 \cdot 3}{3} = \frac{6}{3} = 2$, which is the same as the left.  Hence, it is true when $n=1$ (base step).  
+
+{\bf Step 2:} Next we prove if it is true for $n=k$ for $k \in \N$, then it is also true for $n=k+1$.  Since it is true for $n=k$, then:
+$$\sum_{i=1}^k i(i+1) = \frac{k(k+1)(k+2)}{3}$$
+For $n=k+1$:
+$$\sum_{i=1}^{k+1} i(i+1) = \sum_{i=1}^{k+1} i^2 + i = \frac{k(k+1)(k+2)}{3} + \frac{3(k+1)^2}{3} + \frac{3(k+1)}{3}$$
+$$ = \frac{k(k+1)(k+2)+3(k+1)^2+3(k+1)}{3} = \frac{k^3+2k^2+k^2+2k+3k^2+6k+3+3k+3}{3}$$
+$$ = \frac{k^3+6k^2+11k+6}{3} = \frac{(k^2+3k+2)(k+3)}{3} = \frac{(k+1)(k+2)(k+3)}{3}$$
+
+So, it is true for $n=k+1$.  
+
+{\bf Step 3:} By the principle of mathematical induction, we have prove that $n \in \N$, $$\sum_{i=1}^n i(i+1) = \frac{n(n+1)(n+2)}{3}.$$
+
+\end{proof}
+
+\bigskip
+
+\item \points{4} Use induction to prove that for all integers $n \geq 3$, $n^3 \leq 3^n$.
+
+\bigskip
+
+\begin{proof}
+
+\noindent {\bf Solution:} We prove by PMI:
+
+{\bf Step 1:} When $n=3$, $3^3=3^3$.  Hence, it is true for $n=3$.  
+
+{\bf Step 2:} Suppose for $k \in \N$ and $k \geq 3$, we have $k^3 \leq 3^k$.  We need to prove: $(k+1)^3 \leq 3^{k+1}$.  Lets start by expanding the left side of the equation: $(k+1)^3=k^3+3k^2+3k+1$.  Now, from inductive assumption: $$3^{k+1} = 3 \cdot 3^k > 3k^3 = k^3+k^3+k^3 \leq k^3+3k^2+3k^2>k^3+3k^2+9k$$
+
+$$ = k^3+3k^2+3k+6k > k^3+3k^2+3k+1$$
+
+because $\forall k \geq 3, 6k > 1$.  
+
+{\bf Step 3:} By the strong principle of mathematical induction, $\forall n \in \Z$ and $n \geq 3, n^3 \leq 3^n$.
+
+\end{proof}
+
+\bigskip
+
+\item \points{4} Use induction to prove that for every positive integer $n$,
+    $$1+\frac{1}{4}+\frac{1}{9}+\cdots+\frac{1}{n^2}\le 2-\frac{1}{n}.$$
+    
+\bigskip
+
+\begin{proof}
+
+\noindent {\bf Solution:} This can be restated as: $$\sum_{i=1}^n \frac{1}{i^2} \leq 2 - \frac{1}{n}$$
+
+{\bf Step 1:} When $n=1$: The left side of the eqn equals $\frac{1}{1^2} = 1$ and the right side of the eqn equals $2 - \frac{1}{1} = 1$.  They are equal, hence it is true when $n=1$.  
+
+{\bf Step 2:} Now suppose it is true for $n=k$.  Consider $$\sum_{i=1}^{k+1} \frac{1}{i^2} = \sum_{i=1}^k \frac{1}{i^2} + \frac{1}{(k+1)^2} \leq 2 - \frac{1}{k} + \frac{1}{(k+1)^2}$$
+
+We need to prove that $2 - \frac{1}{k} + \frac{1}{(k+1)^2} \leq 2 - \frac{1}{k+1)}$.  This is equivalent to $\frac{-1}{k} + \frac{1}{(k+1)^2} \leq \frac{-1}{k+1}$.  Multiplying by a common denominator, we get $-(k+1)^2+k \leq -k(k+1)$.  Now let's prove the lemma $\forall k \in \N, \frac{-1}{k} + \frac{1}{(k+1)^2} \leq \frac{-1}{k+1}$.  To do this, we take something we know to be true, such as: $-1 \leq 0$.  With a little algebra, we get $-(k^2+2k+1)+k \leq -k-k^2$.  This can be rewritten as $-(k+1)^2+k \leq -k(k+1)$, which is the same as the expression we had before when we expressed everything with a common denominator.  Hence, it is true for $n=k+1$.  
+
+{\bf Step 3:} By the PMI, we have proven that for every positive integer $n$,
+    $$1+\frac{1}{4}+\frac{1}{9}+\cdots+\frac{1}{n^2}\le 2-\frac{1}{n}.$$
+
+\end{proof}
+
+\bigskip
+
+\item \points{4} Prove that $7 |  (3^{2n}-2^n)$ for every nonnegative integer $n$. (You can use induction or other ways)
+
+\bigskip
+
+\begin{proof}
+
+\noindent {\bf Solution:}
+
+{\bf Step 1:} When $n=1$: $3^2 - 2 = 7$ and $7|7$, hence it is true, when $n=1$.  
+
+{\bf Step 2:} Suppose it is true for $n=k$.  Now consider $3^{2(k+1)}-2(k+1) = 3^{2k+2} - 2k - 2$.  Since $7|(3^{2k}-2k)$, then $\exists m \in \Z$ such that $3^{2k}-2k = 7m$ or $3^{2k}=7m+2k$ and $2k=3^{2k}-7m$.  Now the equation can be restated as: $$3^{2(k+1)}-2(k+1) = 3^2 \cdot 3^{2k} - 2k \cdot 2$$
+
+$$=9(7m+2k) - 2(3^{2k}-7m = 18k+63m-6^{2k}-14m = 18^k+49m-2(2^k-7m)$$
+
+$$=18k-4k+49m+7m=14^k+63m=7(2^k+9m)$$, 
+
+Hence, $7|(2^k+9m)$
+
+{\bf Step 3:} By the PMI, it is proven that $7 |  (3^{2n}-2^n)$ for every nonnegative integer $n$.
+
+\end{proof}
+
+\bigskip
+    
+\item \points{4} We need to put $n$ cents of stamps on an envelop, but we have only (an unlimited
+supply of) $5$ cents and $12$ cents stamps. Prove that we can perform the task if $n \ge 44$. (You can use Strong Principle of Mathematical Induction or
+other methods.)
+
+\bigskip
+
+\noindent {\bf Solution:} The above statement is equivalent to: $\forall n \in \N$ and $n \geq 44$, $\exists x,y \in \N \cup \{0\}$ such that $n=5x+12y$.  So, we can reach the following calculations:
+
+$n=44=5 \times 4 + 12 \times 2$
+
+$n=45=5 \times 9 + 12 \times 0$
+
+$n=46=5 \times 2 + 12 \times 3$
+
+$n=47=5 \times 7 + 12 \times 1$
+
+$n=48=5 \times 0 + 12 \times 4$
+
+$n=49=(n=44) + 5$
+
+$n=50=(n=45) + 5$
+
+$n=51=(n=46) + 5$
+
+\begin{proof} {\bf Step 1:} $n=44$ 
+
+Let $x=4$ and $y=2$, then $44=5 \times 4 + 12 \times 2$ (base step).  
+
+{\bf Step 2:} Suppose for: $44 \leq n \leq k, \exists x,y \in \N \cup \{0\}$ such that $n=5x+12y$.  We need to prove $k+1=5m+12p$ for some $m,n \in \N \cup \{0\}$.  This can be expressed as $(k+1)=(k-4)+5$.  
+
+{\bf Case 1:} $k-4 \geq 44$ then $44 \leq k-4 \leq k$.  From assumption, $\exists x,y \in \N \cup \{0\}$ such that $k-4=5x+12y$ then $k+1=(k-4)+5$ so $k+1=5(x+1)+12y$.  So, $m=x+1$ and $p=y$.  
+
+{\bf Case 2:} If $k-4 < 44$, then there are 4 scenarios:
+
+a) $k-4=43$ so $k=47$ and $k+1=48=5 \times 0 + 12 \times 4$.  So, $m=0$ and $p=4$.  
+
+b) $k-4=42$ so $k=46$ and $k+1=47=5 \times 7 + 12 \times 1$.  So, $m=7$ and $p=1$.
+
+c) $k-4=41$ so $k=45$ and $k+1=46=5 \times 2 + 12 \times 3$.  So, $m=2$ and $p=3$.
+
+d) $k-4=40$ so $k=44$ and $k+1=45=5 \times 9 + 12 \times 0$.  So, $m=9$ and $p=0$.
+
+{\bf Step 3:} From the strong principle of mathematical induction, any postage greater than or equal to 44 cents can be given by a combination of 5 and 12 cent stamps.  
+
+\end{proof}
+
+\bigskip
+
+\item \points{4} 
+\begin{enumerate}
+  \item Prove that for $n\in \N$, $2013^{n}\equiv 3^{n}$ (mod $10$). (Use 4.11 and induction)
+  
+  \bigskip
+  
+  \begin{proof}
+  
+  \noindent {\bf Solution:} If $2013^n \equiv 3^n$ (mod 10), then $10|(2013^n-3^n)$
+  
+  {\bf Step 1:} When $n=1$ (base step), $2013^1 - 3^1 = 2010$ and $10|2010$, hence it is true when $n=1$.  
+  
+  {\bf Step 2:} Suppose it is true for $n=k$, so $10|(2013^k-3^k)$.  Now consider $n=k+1$.  $$2013^{k+1}-3^{k+1}=2013 \cdot 2013^k - 3 \cdot 3^k$$
+  
+  Now, this means that $\exists m \in \N$ such that $2013^k - 3^k = 10m$ or $2013^k = 10m + 3^k$.  Substituting in this expression, we get: $$2013 \cdot (10m+3^k)-3 \cdot 3^k$$ which can be rewritten as $$10m + 2013 \cdot 3^k - 3 \cdot 3^k=10m+2010 \cdot 3^k=10(m+201 \cdot 3^k)$$
+  
+  Therefore, $10|(2013^k-3^k)$
+  
+  {\bf Step 3:} By the principle of mathematical induction, we have proven that for $n\in \N$, $2013^{n}\equiv 3^{n}$ (mod $10$).  
+  
+  \end{proof}
+  
+  \bigskip
+  
+  \item Prove that for $k\in \N$, $3^{4k-3}\equiv 3$ (mod $10$), $3^{4k-2}\equiv 9$ (mod $10$), $3^{4k-1}\equiv 7$ (mod $10$), $3^{4k}\equiv 1$ (mod $10$). (Use induction)
+  
+  \bigskip
+  
+  \begin{proof}
+  
+  \noindent {\bf Solution:} 
+  
+  {\bf Step 1:} When $n=1$:
+  
+  $3^{4 \cdot 1 - 3}=3^1=3 \equiv 3$ (mod 10)
+  
+  $3^{4 \cdot 1 - 2}=3^2=9 \equiv 9$ (mod 10)
+  
+  $3^{4 \cdot 1 - 1}=3^3=27 \equiv 7$ (mod 10)
+  
+  $3^{4 \cdot 1}=3^4=81 \equiv 1$ (mod 10)
+  
+  {\bf Step 2:} Suppose it is true for $n=k$, $k \geq 1$.  
+  
+  $3^{4(k+1)-3}=3^{4k+4-3}=3^{4k+1} \equiv 3^4 \cdot 3 = 243 \equiv 3$ (mod 10)
+  
+  $3^{4(k+1)-2}=3^{4k+4-2}=3^{4k+2} \equiv 3^4 \cdot 9 = 729 \equiv 9$ (mod 10)
+  
+  $3^{4(k+1)-1}=3^{4k+4-1}=3^{4k+3} \equiv 3^4 \cdot 7 = 567 \equiv 7$ (mod 10)
+  
+  $3^{4(k+1)}=3^{4k+4}=3^{4k+4} \equiv 3^4 \cdot 1 = 81 \equiv 1$ (mod 10)
+  
+  {\bf Step 3:} By the PMI, we have proven that $k\in \N$, $3^{4k-3}\equiv 3$ (mod $10$), $3^{4k-2}\equiv 9$ (mod $10$), $3^{4k-1}\equiv 7$ (mod $10$), $3^{4k}\equiv 1$ (mod $10$).  
+  
+  \end{proof}
+  
+  
+  \item Find the last digit of $2013^{2010}$ by using (a) and (b).
+  
+  \bigskip
+  
+  \noindent {\bf Solution:} We have already proven that the last digit of $2013^2010$ will be the same as the last digit of $3^2010$.  Since we have already proven (b), we just need to determine whether 2010 falls under $4k-3$, $4k-2$, $4k-1$, or $4k$.  Dividing $2010$ by $4$ leaves us with a remainder of $2$, so that means the $2010$ has to be expressed using $4k-2$.  From part (b), $3^{4k-2}\equiv 9$ (mod $10$), so the last digit of $2013^{2010}$ has to be $9$.  
+  
+  
+  
+\end{enumerate}
+
+
+%\item \points{4} Prove that for every positive integer $n$, $\displaystyle \frac{n^3}{3}+\frac{n^5}{5}+\frac{7n}{15}$ is also a positive integer. (Hint: $(x+y)^3=x^3+3x^2y+3xy^2+y^3$, and $(x+y)^5=x^5+5x^4y+10x^3y^2+10x^2y^3+5xy^4+y^5$.)
+
+%\item \points{4} We need to put $n$ cents of stamps on an envelop, but we have only (an unlimited supply of) $5$ cents and $12$ cents stamps. Prove that we can perform the task if $n \ge 44$. (You can use Strong Principle of Mathematical Induction or other methods.)
+
+\item \points{extra 2} Find the last three digits of $7^{9999}$.
+%\item \points{Extra 4} Let $n\in \N$ and let $\displaystyle n=\sum_{i=0}^k a_i \cdot 10^i$ be its decimal expression where $a_i\in \{0,1,2,3,4,5,6,7,8,9\}$. Find a necessary and sufficient condition on $\{a_i\}$ so that $7|n$, and prove it. (In class, I have shown you similar theorems for $2\le m\le 11$ except $7$, so your result will finally complete our grand theorem!)
+
+\end{enumerate}
+
+\end{document}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,180 @@
+\documentclass[10pt]{article} %
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{psfrag}
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+\usepackage{color}
+
+\topmargin=-0.5in
+\headsep=0.1in
+\headheight=0.1in
+\textwidth=7in
+\textheight=9.5in
+\footskip=0.2in
+\oddsidemargin -0.3in
+
+
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\points}[1]{{\it (#1 Points)}}
+\newcommand{\tpoints}[1]{{\bf #1 Total points.}}
+
+%old macro syntax
+\def\red#1{\textcolor{red}{#1}}
+\def\blue#1{\textcolor{blue}{#1}}
+
+\title{Math 214 -- Foundations of Mathematics\\
+Homework 10\\
+{\large{\bf Due April 10th}}}
+\date{}
+\author{Alexander Powell}
+
+%\newcommand{\Not}[1]{#1{\bf \kern-0.6em/}}
+\newcommand{\Not}[1]{#1\kern-0.6em/}
+
+\begin{document}
+\maketitle
+
+Solve the following problems.  Please remember to use complete sentences
+and good grammar.
+
+%{\it \blue{Corrections in blue.}}
+
+\begin{enumerate}
+
+
+
+
+
+\item\points{4} Let $A=\R-\{1\}$ and define a function $f: A\to A$ by $f(x)=\displaystyle\frac{x}{x-1}$ for all $x\in A$.
+\begin{enumerate}
+\item Prove that $f$ is bijective.
+
+\noindent {\bf Solution:} First we prove $f$ is injective.  Suppose $x,y \in A$ and $f(x)=f(y)$ then $$\frac{x}{x-1}=\frac{y}{y-1} \rightarrow x(y-1)=y(x-1)$$
+
+$xy-x=xy-y \rightarrow -x=-y \rightarrow x=y$, so $f$ is injective.  
+
+Now we prove $f$ is surjective.  Take $y \in A$.  Solve $y=\frac{x}{x-1} \rightarrow y(x-1)=x$.  
+
+$xy-y-x=0$
+
+$xy-x=y \rightarrow x(y-1)=y \rightarrow x = \frac{y}{y-1}$.  So. $\forall y \in A$, we define $x = \frac{y}{y-1}$.  Then $$f(\frac{y}{y-1}) = \frac{(\frac{y}{y-1})}{(\frac{y}{y-1})-1}=y$$  So $f$ is surjective.  Because $f$ is both injective and surjective, we can say $f$ is bijective.  
+\item Determine $f^{-1}$.
+
+\noindent {\bf Solution} $\frac{x}{x-1} \rightarrow xy-y-x=0 \rightarrow x(y-1)=y \rightarrow x=\frac{y}{y-1}$.  So the inverse can be defined by $f^{-1}(x)=\frac{x}{x-1}$.  
+\item  Determine $f\circ f\circ f$.
+
+\noindent {\bf Solution:} First, let's determine $f\circ f = \displaystyle\frac{(\displaystyle\frac{x}{x-1})}{(\displaystyle\frac{x}{x-1}) -1}$.  Then $f\circ f\circ f$ =
+$$\displaystyle\frac{\displaystyle\frac{(\displaystyle\frac{x}{x-1})}{(\displaystyle\frac{x}{x-1}) -1}}{\displaystyle\frac{(\displaystyle\frac{x}{x-1})}{(\displaystyle\frac{x}{x-1}) -1}-1}$$
+\end{enumerate}
+
+%\item\points{4} Define the function $h: \Z_{20}\to \Z_{20}$  by $h([a])=[3a]$ for each $a\in \Z$.
+%\begin{enumerate}
+%\item Prove that the function $h$ is injective.
+%\item For the subset $A=\{[0], [3], [6], [9], [12], [15]\}$ and $B=\{[0], [8]\}$ of $\Z_{20}$, determine the subsets $h(A)$ and $h(B)$ of $\Z_{20}$. Here we define $h(S)=\{h(x):x\in S\}$ for any subset $S$ of $\Z_{20}$.
+%\end{enumerate}
+
+ \item\points{4} Let $f:\R\to\R$ and $g:\R\to\R$ be defined by
+ \begin{equation*}
+    f(x)=2x+3, \;\;\; g(x)=-3x+5.
+ \end{equation*}
+ One can prove that $f$ and $g$ are both bijective.
+ \begin{enumerate}
+   \item Determine the composition $g \circ f$.
+   
+   \noindent {\bf Solution:} $g \circ f=3(2x+3)+5$ or $y=-6x-4$
+   \item Determine the inverse functions $f^{-1}$ and $g^{-1}$.
+   
+   \noindent {\bf Solution:} $f^{-1}(x)=\frac{x-1}{2}$ and $g^{-1}(x)=\frac{x-5}{-3}$
+   \item Determine  the inverse function $(g \circ f)^{-1}$ of $g \circ f$ and the composition $f^{-1} \circ g^{-1}$. What conclusion can you obtain here?
+   
+   \noindent {\bf Solution:} $(g \circ f)^{-1}(x)=\frac{x+4}{-6}$ and $f^{-1} \circ g^{-1}=\frac{(\frac{x-5}{-3})-3}{2}$.  Because $f$ anf $g$ are both bijective, then so is $(g \circ f)$.  
+ \end{enumerate}
+ 
+ \item \points{4} Define  $h: \Z_{4}\to \Z_{6}$  by $h([a])=[3a]$ for each $a\in \Z$.
+\begin{enumerate}
+\item Prove that  $h$ is well-defined thus it is a function.
+
+\noindent {\bf Solution:} $h$ is well defined because if $(x,y)\in h$, and $(x,z)\in h$, then $y=z$.  This is clear because the equivalence classes for $\Z_{4}=\{[0],[1],[2],[3]\}$ and $\Z_{6} = \{[0],[1],[2],[3],[4],[5]\}$.  Because of the following:
+$[3 \cdot 0] = [0] \in \Z_{6}$, and
+
+$[3 \cdot 1] = [3] \in \Z_{6}$, and
+
+$[3 \cdot 2] = [6] = [0] \in \Z_{6}$, and
+
+$[3 \cdot 3] = [9] = [3] \in \Z_{6}$.  So, $h$ is well defined.  
+\item Prove $h$ is neither injective nor surjective. 
+
+\noindent{\bf Solution:} $h$ is not injective because if you take $a=0$ and $a=2$, then $[3 \cdot 0] = [0] \in \Z_{6}$, and $[3 \cdot 2] = [6] = [0] \in \Z_{6}$.  
+
+$h$ is not surjective because if you take $a=5$, then $[3 \cdot 5]=[15]=[3]$
+\end{enumerate}
+ 
+ \item \points{4}
+Prove that the function $f:[0,\infty)\to [0,\infty)$ defined by $f(x)=\displaystyle\frac{x^2}{2x+1}$ is a bijection, and determine the inverse function $f^{-1}(x)$ for $x\in [0,\infty)$.
+
+\noindent {\bf Solution:} First, we must prove it is injective.  Suppose $f(x)=f(y)$, then $$\frac{x^2}{2x+1}=\frac{y^2}{2y+1} \rightarrow x^2(2y+1)=y^2(2x+1)$$
+$$2yx^2-2xy^2+x^2-y^2=0 \rightarrow (2xy+x+y)(x-y)=0$$
+Since $x>0$ and $y>0$, then $2xy+x+y>0$, so $x-y=0$ or $x=y$, so $f$ is injective.  
+
+Now we prove surjectivity: Let $y=\frac{x^2}{2x+1} \rightarrow y(2x+1)=x^2 \rightarrow y=x^2-2xy$
+
+So, for any $x$, let $x=y+sqrt{y^2+y}$
+
+Also, the inverse function can be expressed as $f^{-1}(x) = x+sqrt{x^2+x}$.  
+
+
+
+\item \points{4} Give an example of a function $f:\Z\to \N$ that is
+\begin{enumerate}
+  \item surjective but not injective;
+  
+  \noindent {\bf Solution:} The function $f(x)=x^2+1$ defined by $f:\Z\to \N$ is surjective but not injective.  
+  \item injective but not surjective.
+  
+  \noindent {\bf Solution:} The function $f(x)=e^x+5$ defined by $f:\Z\to \N$ is injective but not surjective.  
+\end{enumerate}
+
+\item\points{4} For nonempty sets $A$ and $B$ and functions $f : A \rightarrow
+  B$ and $g: B \rightarrow A$ suppose that $g \circ f = i_A$, the
+  identity function on $A$. Prove that $f$ is injective and $g$ is surjective.
+  
+  \noindent {\bf Solution:} Suppose $f(x)=f(y)$ for some $x,y\in A$.
+  
+  Since $f(x)=f(y)$, then $g(f(x))=g(f(y))$ or $(g \circ f)(x)=(g \circ f)(y)$.  Since $(g \circ f)=i_A$, then $(g \circ f)(x)=x$ and $(g \circ f)(y)=y$, hence $x = (g \circ f)(x) = (g \circ f)(y)=y$ So, $f$ is injective. 
+  
+  Now we prove surjectivity:
+  $\forall y \in A$, we need to find $x\in A$ such that $f(x)=y$.  Since, $(g \circ f)=i_A$, then $(g \circ f)(y)=i_A(y)=y$.  let $x=f(y)$, then $f(x)=g(f(xy)) = y$, so $f$ is surjective.  
+
+
+\item \points{extra 4} For nonempty sets $A$ and $B$ and functions $f : A \rightarrow
+  B$ and $g: B \rightarrow A$ suppose that $g \circ f = i_A$, the
+  identity function on $A$.
+  \begin{enumerate}
+    \item \points{1} Show that $f$ is not necessarily surjective.
+    \item \points{1} Show that $g$ is not necessarily injective.
+    \item \points{2} Prove: $f$ is surjective if and only if $g$ is injective.
+    \end{enumerate}
+
+ %\item\points{extra 2} Let $f(x)=\displaystyle \frac{1}{1-x}$. Let
+  %$f_1(x)=f(x)$ and for each $n=2,3,\cdots$, let
+  %$f_n(x)=(f\circ f_{n-1})(x)$. What is the value of $f_{2010}(2010)$?
+\end{enumerate}
+\end{document}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

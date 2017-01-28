@@ -1,0 +1,315 @@
+\documentclass[10pt]{article} %
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{psfrag}
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+\usepackage{amsthm}
+
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9in}
+
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\points}[1]{{\it (#1 Points)}}
+\newcommand{\tpoints}[1]{{\bf #1 Total points.}}
+
+\title{Math 214 -- Foundations of Mathematics\\
+Homework 3\\
+\author{Alexander Powell}
+{\large{\bf Due February 5, 2014}}}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+Solve the following problems. For proof problems, please remember to use complete sentences
+and good grammar.
+
+\begin{enumerate}
+\item \points{4} For parts (a) - (c), first, write the statements so that there are no $\sim$ symbols. Then, rewrite the statements in words so that there are no $\forall, \exists, \in$ or $=$ symbols. Finally determine whether the statement is true or false. 
+\begin{enumerate}
+\item $\sim(\forall x\in \R, \exists y\in \R, xy=1)$;
+
+\bigskip
+
+\noindent {\bf  Solution:} $(\exists x\in \R, \forall y\in \R, xy \neq 1)$
+
+There exists some real number $x$, such that for all real numbers $y$, the product of $x$ and $y$ does not equal $1$.  This statement is {\bf True}.  
+
+\bigskip
+
+\item $\sim(\exists y\in \R, \forall x\in \R, xy=0)$;
+
+\bigskip
+
+\noindent {\bf  Solution:} $(\forall y\in \R, \exists x\in \R, xy \neq 0)$
+
+For all real numbers $y$, there exists some real number $x$ such that the product of $x$ and $y$ does not equal $0$.  This statement is {\bf False}.  
+
+\bigskip
+
+\item $\sim(\exists n\in \Z, \exists m\in \Z, m\le n)$.
+
+\bigskip
+
+\noindent {\bf  Solution:} $(\forall n\in \Z, \forall m\in \Z, m > n)$
+
+For all integers $n$, and for all integers $m$, $m > n$.  This statement is {\bf False}.  
+
+\bigskip
+
+\end{enumerate}
+
+\item \points{4}\begin{enumerate}
+        \item \lq\lq Some birds sing all the time; 	All birds sing sometimes.\rq\rq\\
+  The first part of sentence can be  quantified as: \lq\lq $\exists$ bird $b$ such that, $\forall$ time $t$, $b$ sings.\rq\rq\ Use a similar quantified statement for the second part.
+  
+  \bigskip
+  
+  \noindent {\bf  Solution:} $\exists$ time $t$ such that, $\forall$ bird $b$, $b$ sings.  
+  
+  \bigskip
+
+      \item Consider the sentence, \lq\lq For every integer $n>0$ there exists some real number $x>0$ such that $x<1/n$.\rq\rq\ Without using words of negation, write a complete sentence that negates the sentence. Which sentence (the original or the negation) is true?
+      
+      \bigskip
+      
+      \noindent {\bf  Solution:} There exists an integer $n \leq 0$ such that for all real numbers $x \leq 0$, $x \geq 1/n$.  The original sentence is {\bf True}.  
+      
+      \bigskip
+      
+      \end{enumerate}
+
+
+
+
+
+\item \points{2} Prove directly that if $x$ is an even integer, then $7x+5$ is an odd integer.
+
+\bigskip
+
+\noindent {\bf  Solution:} 
+
+\begin{proof}
+Let $x$ be an even number, then there exists $m\in \Z$ such that $x = 2m$.  So, 
+
+$7x + 5 = 7 (2m) + 5$
+
+$= 14m + 5$
+
+$= 2(7m + 2) + 1$
+
+Which is an odd integer.  
+
+\end{proof}
+
+\bigskip
+
+ \item \points{2} Prove by contrapositive that if $3x+5$ is even then $x+2$ is odd.
+ 
+ \bigskip
+ 
+ \noindent {\bf Solution:} 
+ 
+ \begin{proof}
+ First, prove contrapositive: If $x + 2$ is even, then $3x + 5$ is odd.  
+ 
+ Let $x + 2$ be even, then $\exists n\in \Z$ such that 
+ 
+ $x + 2 = 2n$ or $x = 2n - 2$
+ 
+ So, $3x + 5 = 3 (2n - 2) + 5$
+ 
+ $ = 6n - 6 + 5$
+ 
+ $ = 6n - 1$
+ 
+ $ = 2 (3n) - 1$
+ 
+ Which is an odd number.  Hence the contrapositive is true then the original is also true.  
+ 
+ \end{proof}
+ 
+ \bigskip
+
+ \item \points{4} Let $x\in \Z$. Use a lemma to prove that if $7x-4$ is even, then $3x-11$ is odd. (Hint: $x$ should be even or odd?)
+ 
+ \bigskip
+ 
+ \noindent {\bf Solution:} 
+ 
+ \begin{raggedright}
+ {\bf Step 1:} If $7x - 4$ is even, then $x$ is even.  
+ \end{raggedright}
+ \begin{proof}
+ 
+ {\bf Use contrapositive:}  If $x$ is odd, then $7x - 4$ is odd.  
+ 
+ Let $x$ be odd, then $x = 2n + 1$ for some $n\in \Z$.  So, 
+ 
+ $7x - 4 = 7 (2n + 1) - 4$
+ 
+ $ = 14n + 7 - 4$
+ 
+ $ = 14n + 3$
+ 
+ $ = 2 (7n + 1) + 1$
+ 
+ Which is an odd number.  Hence the contrapositive is true, the original is also true.  
+ 
+ \end{proof}
+ 
+ \begin{raggedright}
+ {\bf Step 2:} If $x$ is even, then $3x - 11$ is odd.  
+ \end{raggedright}
+ \begin{proof}
+ Let $x$ be even, then $x = 2n$ for some $n\in \Z$.  
+ 
+ $3x - 11 = 3 (2n) - 11$
+ 
+ $ = 6n - 11$
+ 
+ $ = 6n - 10 - 1$
+ 
+ $ = 2 (3n - 5) - 1$
+ 
+ Which is an odd number.  Therefore, it is proven that if $7x - 4$ is even, then $3x - 11$ is odd.  
+ 
+ \end{proof}
+ 
+ \bigskip
+
+\item \points{4} Prove that if $n\in \Z$, then $n^3-n$ is even. (Hint: use proof by cases)
+
+\bigskip
+
+\noindent{\bf Solution:}  
+
+There are two cases to this proof: either $n$ is even or odd.  
+
+\begin{raggedright} {\bf Case 1:} If $n$ is even. \end{raggedright}
+
+\begin{proof}
+Let $n$ be even, then $n = 2x$ for some $x \in \Z$.  
+
+$n^3 -n = (2x)^3 - 2x$
+
+$ = 8x^3 - 2x$
+
+$ = 2 (4x^3 - x)$
+
+Which is an even number.  
+\end{proof}
+
+\begin{raggedright} {\bf Case 2:} If $n$ is odd. \end{raggedright}
+
+\begin{proof}
+Let $n$ be odd, then $n = 2x + 1$ for some $x \in \Z$.  
+
+$n^3 - n = (2x + 1)^3 - (2x + 1)$
+
+$ = (4x^2 + 4x + 1)(2x + 1) - (2x + 1)$
+
+$ = 8x^3 + 8x^2 + 2x + 4x^2 + 4x + 1 - 2x - 1$
+
+$ = 8x^3 + 12x^2 + 4x$
+
+$ = 2(4x^3 + 6x^2 + 2x)$
+
+Which is an even number.  
+
+\end{proof}
+
+\begin{raggedright} Therefore, it is proven that if $n\in \Z$, then $n^3 - n$ is even.  \end{raggedright}
+
+\bigskip
+
+\item \points{4} Let $a,b\in \N$. Prove that if $ab=4$, then $(a-b)^3-9(a-b)=0$.
+
+\bigskip
+
+\noindent{\bf Solution:} 
+
+This is a proof by cases.  
+
+\begin{raggedright} {\bf Case 1:} $a = 2, b = 2$ \end{raggedright}
+
+\begin{proof}
+Let $a = b = 2$, then
+
+$(2 - 2)^3 - 9(2 - 2) = 0$
+
+$0 - 9(0) = 0$
+
+This satisfies the hypothesis.  
+
+\end{proof}
+
+\begin{raggedright} {\bf Case 2:} $a = 1, b = 4$ \end{raggedright}
+
+\begin{proof}
+Let $a = 1$ and $b = 4$, then
+
+$(1 - 4)^3 - 9(1 - 4) = 0$
+
+$-27 - 9(-3) = 0$
+
+This satisfies the hypothesis.  
+
+\end{proof}
+
+\begin{raggedright} {\bf Case 3:} $a = 4, b = 1$ \end{raggedright}
+
+\begin{proof}
+Let $a = 4$ and $b = 1$, then
+
+$(4 - 1)^3 - 9(4 - 1) = 0$
+
+$27 - 9(3) = 0$
+
+This satisfies the hypothesis.  
+
+\end{proof}
+
+\begin{raggedright}  Therefore, it is proven that if $ab = 4$, then $(a-b)^3-9(a-b)=0$.  \end{raggedright}
+
+\bigskip
+
+\item \points{extra 4} It was proved by Andrew Wiles and Richard Taylor that Fermat Theorem is true: for every $x,y,z\in \N$ and $n\in \N$, $n\ge 3$, $x^n+y^n\ne z^n$. Here we consider the case when $n$ is a negative integer.
+    \begin{itemize}
+      \item Show that there are infinitely many $x,y,z\in \N$ such that $$\frac{1}{x}+\frac{1}{y}=\frac{1}{z}.$$
+      \item Prove or disprove that there are infinitely many $x,y,z\in \N$ such that $$\frac{1}{x^2}+\frac{1}{y^2}=\frac{1}{z^2}.$$
+      \item Assuming the Fermat Theorem, show that there is no $x,y,z\in \N$ and $n\ge 3$ such that $$\frac{1}{x^n}+\frac{1}{y^n}=\frac{1}{z^n}.$$
+    \end{itemize}
+%\item \points{4} Let $A, B, C$ be sets. Prove that $(A-B)\cup (A-C)=A-(B\cap C)$.
+
+
+
+
+
+
+
+%   \newcommand{\ceil}[1]{\rceil #1 \lceil}
+% \item \points{4} For a real number, $\alpha$, define the ceiling of
+%   $\alpha$, written as $\ceil{\alpha}$, as the minimum integer $n$
+%   such that $n \geq \alpha$, i.e., $\ceil{alpha} = \min\{n \in \N : n
+%   \geq \alpha\}$. Show that
+
+%\item \points{4} Let $A \subset \R$ be a well-ordered set.  Prove that if $B \subset A$ then $B$ is well-ordered.
+
+
+
+%\item \points{extra 4} The set of complex numbers is $\C=\{a+bi:a,b\in \R\}$ where $i$ satisfies $i^2=-1$. One can prove that $\C$ is a field (in the same sense as the field definition given in notes). Prove that there is no any order relation can be defined on $\C$ so $\C$ is an ordered field. (all definitions are in the notes)
+
+\end{enumerate}
+
+\end{document}
+
+

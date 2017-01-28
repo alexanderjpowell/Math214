@@ -1,0 +1,184 @@
+\documentclass[10pt]{article} %
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{psfrag}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumerate,url}
+
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9in}
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\points}[1]{{\it (#1 Points)}}
+\newcommand{\tpoints}[1]{{\bf #1 Total points.}}
+
+\title{Math 214 -- Foundations of Mathematics\\
+Homework 11\\
+{\large{\bf Due April 17th}}}
+\date{}
+\author{Alexander Powell}
+
+
+\begin{document}
+\maketitle
+
+
+
+\begin{enumerate}
+
+\item\points{4} Prove that $(0,1)$ and $[0,1]$ are numerically equivalent by defining (and proving) a bijection $f$ between $(0,1)$ and $[0,1]$. (Hint: choose a sequence $\{x_n\}$ in $(0,1)$, define $f:[0,1]\to (0,1)$ by mapping $0$ to $x_1$, $1$ to $x_2$, and $x_n$ to $x_{n+2}$)
+
+\noindent{\bf Solution:} First we must prove there is an injection.  Suppose $f(x)=f(y)$.  Then there are $9$ cases.  
+{\bf Case 1:} $x=1/2, y=1/n, n \geq 3$.  Then $0=\frac{1}{n-1} \rightarrow$ this is not possible. 
+
+{\bf Case 2:} $x=1/n,n\geq3, y\not\in\{\frac{1}{n}\}, \frac{1}{n-2}=y$.  Again, not possible.  
+
+{\bf Case 3:} $x=1/2,y=1/2$, so $0=0$.  This is true.  
+
+{\bf Case 4:} $x=1/2,y=1/3$, so $0=1$.  This is not possible
+
+{\bf Case 5:} $x=1/3,y=1/2$, so $1=0$.  This is not possible
+
+{\bf Case 6:} $x=1/n, n\geq 3, y=1/2$ so $\frac{1}{n-2}=0$ but this is not possible.
+
+{\bf Case 7:} $x=1/n, n\geq 3, y=1/3$ so $\frac{1}{n-2}=1$ so $n=3$.
+
+{\bf Case 8:} $x=1/3,y=1/n,n\geq 3$ so $\frac{1}{n-2}=1$ so $n=3$.
+
+{\bf Case 9:} $x=1/n,n\geq 3,y=1/n,n\geq 3$ so $\frac{1}{n-2}=\frac{1}{m-2}$ or $m=n$.  
+
+So, we have proven that $f$ is injective.  Now we prove surjectivity.  To make $f$ surjective the bijection can be defined as follows:
+\[f(x) = \left\{
+  \begin{array}{lr}
+    0 & : x < 0\\
+    1 & : x \ge 0\\
+    \frac{1}{n-1} & : x= \frac{1}{n},n\ge 3\\
+    x & : else
+    
+  \end{array}
+\right.
+\]
+
+
+\item\points{4} Prove that $S=\{(a, b):  a, b\in \N, a\ge b\}$ is denumerable.
+
+(Hint: you can use Theorem 10.4 and Result 10.6)
+
+\noindent{\bf Solution:} First, we know $S \subseteq \N \times \N$.  From theorem $10.4$, we know every infinite subset of a denumerable set it denumerable.  Also, from result $10.6$, if $A$ and $B$ are denumerable then so is $A\times B$.  And since we know $\N$ is denumerable, so is $\N \times \N$, which means so is $S$.  
+
+\item\points{4}
+\begin{enumerate}
+  \item Prove that $A$ and $B$ are disjoint denumerable sets, then $A\bigcup B$ is also denumerable. Here we assume that $A=\{f(n):n\in \N\}$ and $B=\{g(n):n\in \N\}$ where $f:\N\to A$ and $g: \N\to B$ are bijections. Define a bijection $h:\N\to
+A\bigcup B$ in terms of $f$ and $g$, and prove the function $h$ which you define is a bijection. (Hint: define $h(n)$ in cases of $n$ is even or odd)
+
+\noindent{\bf Solution:} Since $A$ and $B$ are denumerable, we have:
+$$A=\{f(1),f(2),f(3),...\}, B=\{g(1),g(2),g(3),...\}$$ and $$A\cup B=\{f(1),g(1),f(2),g(2),f(3),g(3),...\}$$
+
+We can express the bijection of $h: \N \rightarrow A\cup B$ as 
+\[h(n) = \left\{
+  \begin{array}{lr}
+    f(\frac{n+1}{2}) & : if n is odd\\
+    g(\frac{n}{2}) & : if n is even
+    
+  \end{array}
+\right.
+\]
+
+\item Let $A=\{3p-1:p\in \N\}$ and $B=\{3p-2:p\in \N\}$. Define a bijection $f:\N\to A$ and a bijection  $g:\N\to B$. Then  Prove that $A \bigcup B$ is denumerable by defining a bijection between  $A \bigcup B$ and $\N$. (Hint: define $h: \N\to A \bigcup B$, and use problem but with specific $f$ and $g$. You do not need to prove this $h$ is a bijection again as this has been proved in part (a))
+
+\noindent{\bf Solution:} Let $f:\N \rightarrow A = \{3p-1:p\in \N\}$, then $f(1)=2,f(2)=5,f(3)=8$ and let $g:\N \rightarrow B = \{3p-2:p\in \N\}$, then $g(1)=1,f(2)=4,f(3)=7$.  So, a bijection can be defined by:
+
+\[h(n) = \left\{
+  \begin{array}{lr}
+    3(\frac{n+1}{2})-2 & : if n is odd\\
+    3(\frac{n}{2})-2 & : if n is even
+    
+  \end{array}
+\right.
+\]
+
+\end{enumerate}
+
+
+\item\points{4} Define $f:\N\times \N\to \N$ by $f(i,j)=2^{i-1}(2j-1)$. Prove $f$ is a bijection thus $\N\times \N$ and $\N$ are numerically equivalent.
+
+    (Hint: for injective, use Euclid's Lemma (11.13); for surjective, note that any positive integer $n$, from Theorem 11.17, $n$ is the product of prime numbers. In particular, $n=2^{i-1}p$ where $p$ is the product of all prime factors of $n$.)
+    
+    \noindent{\bf Solution:} $f(2,3)=2^{2-1}\cdot (2 \cdot 3-1)=2 \cdot 5=10$.  This is a surjection because $\forall y\in \N$, you can choose some number, for example
+    $56=8 \cdot 7=2^3 \cdot 7$, so $y=2^{n_1} \cdot 3^{n_2} \cdot 5^{n_3}...$
+    Now we prove injection: Suppose $f(i,j)=f(m,n)$, then $$2^{i-1}(2j-1)=2^{m-1}(2n-1)$$
+    From theorem $11.13$, if $a,b,c\in \Z$ and $a\neq0$, and if $a|bc$ and $gcd(a,b)=1$, then $a|c$.  From this, we have $2^{i-1}|2^{m-1}(2n-1)$ and we know $gcd(2^{i-1},2n-1)=1$ because $2_{i-1}$ will always be a factor of $2$ and $2n-1$ is an odd number, so we can conclude that $2^{i-1}|2^{m-1}$.  Thus, $f$ is a bijection and $\N \times \N$ and $\N$ are numerically equivalent.  
+%\item\points{4} \label{li:1} For $k \in \N$, let $S_k = \{A \subset \N : |A| = k\}$. Show that $|S_2| =| \N |$.
+
+%\item\points{4} Let $A = \{(\alpha_1,\alpha_2,\alpha_3,\ldots): \alpha_i \in \{0,1\}, i \in \N\}$, i.e., $A$ is the infinite cartesian product of the set $\{0,1\}$. Show that $A$ is uncountable.
+
+  \item\points{4} Prove that the set of irrational numbers is uncountable.
+
+  (Hint: prove by contradiction, and use problem 3 to prove $\R$ is denumerable, which contradicts with 10.11)
+  
+  \noindent{\bf Solution:} We will prove this by contradiction.  Let's suppose that the set of irrationals is countable.  We know that $\R=\mathbb{Q}\cup\mathbb{I}$.  Now, if $\mathbb{I}$ was countable then $\R$ would be the union of $2$ countable sets, therefore making $\R$ countable.  This is a contradiction, hence $\mathbb{I}$ is uncountable.  
+
+  \item\points{4} Consider the function $g:(-1,1)\to \R$ defined by $g(x)=\ds \frac{x}{1-x^2}$. Show that $(-1,1)$ and $\R$ are numerically equivalent by proving (i)  $g$ is surjective; (ii) $g$ is injective.
+  
+  \noindent{\bf Solution:} 
+  (i) Prove $g$ is surjective:
+  Let $y=\frac{x}{1-x^2}$ and we solve for x.  
+  $y(1-x^2)=x \rightarrow y-yx^2-x=0$ or $-x^2y-x+y=0$.  So $x=\frac{1\pm sqrt{1+4y^2}}{-2y}$, so $\forall y$, the function has a value.  
+  (ii) Prove $g$ is injective:
+  Suppose $g(x)=g(y)$, then $$\frac{x}{1-x^2}=\frac{y}{1-y^2} \rightarrow x(1-y^2)=y(1-x^2)$$
+  $x-xy^2=y-x^2y \rightarrow x-y-xy^2+x^2y=0$
+  
+  $(x-y)(xy-1)=0$.  Because the domain is $(-1,1)$, then $(xy-1)\neq 0$ so we know $x-y=0$ or $x=y$.  Therefore, $g$ is injective.  
+
+  %\item\points{extra 4} Prove that $\N$ and $S=\N-\{n^2:n\in \N\}$ are numerically equivalent by defining a bijection $f$ between $\N$ and $S$. (Do not use Schroder-Bernstein  Theorem in Section 10.5 to prove it)
+
+      \item\points{extra 4} (This is same as Problem 2, but prove in a different way) Prove that $S=\{(a, b):  a, b\in \N, a\ge b\}$ is denumerable without using Theorem 10.4, but directly define a bijection $f:S\to \N$ or $g:\N\to S$.
+
+      \item\points{extra 4} Define $f:\N\times \N\to \N$ by
+      $$f(i,j)=\frac{(i+j-1)(i+j-2)}{2}+i.$$
+      Prove that $f$ is a bijection thus $\N\times \N$ and $\N$ are numerically equivalent.
+
+%\item\points{4} Prove that the intervals $[0,\infty)$ and $(-1,4)$ are numerically equivalent.
+
+%\item\points{4} Prove that a nonempty set $S$ is countable if and only if there exists an injective function $f:S \rightarrow \N$.
+
+% \item Prove that if $A, B$ and $C$ are nonempty sets such that $|A|\le |B|\le |C|$ and $|A|=|C|$, then $|A|=|B|$.
+
+  %\item ({\it Bonus, 4 points}) Using the definition of $S_k$ from problem \ref{li:1},  show that \\
+    %(a) for all $k \in \N$, $S_k$ is denumerable.\\
+    %(b) $\cS = \bigcup_{k=1}^\infty S_k$  is denumerable.
+%\item\points{extra 4} Prove that $\R$ and $\R^2$ are numerically equivalent by establishing a bijection between them. (Do not use Schroder-Bernstein  Theorem in Section 10.5 to prove it)
+
+%\item\points{extra 100} Define a sequence $\{x_n\}$ of rational numbers by $x_0= 2$ and
+%$\displaystyle x_{n+1} = x_n -\frac{1}{x_n}$
+%for $n \ge 0$. Is the sequence bounded?
+
+
+
+%\item\points{extra 100} Show that $462$ is the largest integer that cannot be written in the
+%form $ab + ac + bc$, where $a, b, c$ are positive integers.
+
+%\textbf{Note}: The last two problems are from Richard Stanley's problem solving seminar in MIT. Both are marked as \lq\lq unsolved\rq\rq. \url{http://math.mit.edu/~rstan/s34/problems.html}
+\end{enumerate}
+
+\end{document}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

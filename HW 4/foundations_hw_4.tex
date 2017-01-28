@@ -1,0 +1,349 @@
+\documentclass[10pt]{article} %
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{psfrag}
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+\usepackage{amsthm}
+
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9in}
+
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\points}[1]{{\it (#1 Points)}}
+\newcommand{\tpoints}[1]{{\bf #1 Total points.}}
+
+\title{Math 214 -- Foundations of Mathematics\\
+Homework 4\\
+{\large{\bf Due February 13, 2014}}}
+\date{}
+\author{Alexander Powell}
+
+
+\begin{document}
+\maketitle
+
+Solve the following problems. Please remember to use complete sentences
+and good grammar.
+
+\begin{enumerate}
+
+
+\item \points{4} Let $x,y\in \Z$. Prove that if $3\not| x$ and $3\not| y$, then $3 | (x^2-y^2)$.
+
+\bigskip
+
+\noindent {\bf Solution:} 
+
+\begin{proof}
+First, it should be stated that $(x^2-y^2) = (x + y)(x - y)$.  Now, if $3\not| x$ and $3\not| y$, then there are $4$ cases that must be proven:
+\begin{center} {\bf Case 1:} $x = 3n + 1$ and $y = 3m + 1$
+
+Let $3 | (3n + 1)^2 - (3m + 1)^2$
+
+Then, $((3n + 1) + (3m + 1))((3n + 1) - (3m + 1))$
+
+$ = (3n + 1 + 3m + 1)(3n + 1 - 3m - 1)$
+
+$ = 9n^2 + 9mn + 6n - 9mn - 9m^2 - 6m$
+
+$ = 3(3n^2 - 3m^2 + 2n - 2m)$
+
+Therefore, 3 divides $x^2 - y^2$ in this case.  
+\end{center}
+
+\begin{center} {\bf Case 2:} $x = 3n + 1$ and $y = 3m + 2$
+
+Let $3 | (3n + 1)^2 - (3m + 2)^2$
+
+Then, $((3n + 1) + (3m + 2))((3n + 1) - (3m + 2))$
+
+$ = (3n + 3m + 3)(3n + 1 - 3m - 2)$
+
+$ = 9n^2 + 9mn + 9n - 9mn - 9m^2 - 9m - 3n - 3m - 3$
+
+$ = 3(3n^2 + 3n - 3m^2 - 3m - n - m - 1)$
+
+Therefore, 3 divides $(x^2 - y^2)$ in this case.  
+\end{center}
+\begin{center} {\bf Case 3:} $x = 3n + 2$ and $y = 3m + 1$
+
+Let $3 | (3n + 2)^2 - (3m + 1)^2$
+
+Then, $((3n + 2) + (3m + 1))((3n + 2) - (3m + 1))$
+
+$ = (3n + 3m + 3)(3n - 3m + 1)$
+
+$ = 9n^2 + 9mn + 9n - 9mn - 9m^2 - 9m + 3n + 3m + 3$
+
+$ = 3(3n^2 + 3n - 3m^2 - 3m + n + m + 1)$
+
+Therefore, 3 divides $(x^2 - y^2)$ in this case.  
+\end{center}
+\begin{center} {\bf Case 4:} $x = 3n + 2$ and $y = 3m + 2$
+
+Let $3 | (3n + 2)^2 - (3m + 2)^2$
+
+Then, $((3n + 2) + (3m + 2))((3n + 2) - (3m + 2))$
+
+$ = (3n + 3m + 4)(3n - 3m)$
+
+$ = 9n^2 + 9mn + 12n - 9mn - 9m^2 - 12m$
+
+$ = 3(3n^2 + 4n - 3m^2 - 4m)$
+
+Therefore, 3 divides $(x^2 - y^2)$ in this case.  
+\end{center}
+
+\begin{center} {\bf Therefore}, it is proven that if $3\not| x$ and $3\not| y$, then $3 | (x^2-y^2)$. \end{center}
+
+\end{proof}
+
+\bigskip
+
+\item \points{4} Let $n\in \Z$.  Prove that $2 | (n^4-3)$ if and only if $4 | (n^2+3)$. (Hint: prove $n$ is odd)
+
+\bigskip
+
+\noindent {\bf Solution:}
+
+\begin{proof}
+Because of the "if and only if" in the question, it is necessary to prove that if $2 | (n^4-3)$ then $4 | (n^2+3)$ and if $4 | (n^2+3)$ then $2 | (n^4-3)$.  This proof will be divided into two parts.  
+
+\begin{raggedright} {\bf Part 1:} Prove that if $2 | (n^4-3)$ then $4 | (n^2+3)$.  To do this we will introduce the lemma that n is odd.
+\end{raggedright}
+
+\begin{center} {\bf Step 1:} Prove that if $2 | (n^4-3)$, then n is odd.  Use contrapositive: If $n$ is even, then $2 \not| (n^4-3)$.   \end{center}
+\begin{center}
+Let $n$ be even, then $n = 2x, x \in \Z$.  
+
+So, $((2x)^4 - 3)$
+
+$ = 16x^4 - 3$
+
+$ = 2(8x^4 - 3/2)$
+
+Therefore, $2 \not| (n^4-3)$.  
+\end{center}
+
+\begin{center} {\bf Step 2:} If $n$ is odd, then $4 | (n^2+3)$.  
+
+Let $n$ be odd, then $n = 2x + 1, x \in \Z$.  
+
+So, $(2x + 1)^2 + 3$
+
+$ = (2x + 1)(2x + 1) + 3$
+
+$ = 4x^2 + 4x + 4$
+
+$ = 4(x^2 + x + 1)$
+
+Therefore, if $n$ is an odd number, then $4 | (n^2+3)$.  
+\end{center}
+
+
+\begin{raggedright} {\bf Part 2:} Next, we need to prove that if $4 | (n^2+3)$ then $2 | (n^4-3)$.  Again, we will use a lemma, $n$ is odd.  
+\end{raggedright}
+
+\begin{center} {\bf Step 1:} Use contrapositive: If $n$ is even, then $4 \not| (n^2+3)$
+
+Let $n$ be even, then $n = 2x, x \in \Z$.  
+
+So, $(2x)^2 + 3$
+
+$ = 4x^2 + 3$
+
+$ = 4(x^2 + 3/4)$
+
+Therefore, 4 does not divide $(n^2 + 3)$.  
+\end{center}
+\begin{center} {\bf Step 2:} If $n$ is odd then $2 | (n^4-3)$.  
+
+Let $n$ be odd, then $n = 2x + 1, x \in \Z$.  
+
+So, $(2x + 1)^4 - 3$
+
+$ = 16x^4 + 32x^3 + 24x^2 + 8x - 2$
+
+$ = 2(8x^4 + 16x^3 + 12x^2 + 4x - 1)$
+
+Therefore, if n is odd then $2 | (n^4-3)$.  
+\end{center}
+\begin{center} {\bf Therefore}, following parts 1 and 2, we have finally proven that $2 | (n^4-3)$ if and only if $4 | (n^2+3)$.  \end{center}
+
+\end{proof}
+
+\bigskip
+
+\item \points{4} Prove that if $x$ is a real number such that $x^2+x>2$, then either $x<-2$ or $x>1$. (Hint:  use axioms and Theorems 1-2 in Notes 1)
+
+\bigskip
+
+\noindent {\bf Solution:} 
+
+\begin{proof} Prove by contrapositive: If $x \geq -2$ and $x \leq 1$, then $x^2 + x \leq 2$.  
+
+Since $x \geq -2$, then $x + 2 \geq 0$.  
+Since $x \leq 1$, then $x - 1 \leq 0$. 
+
+Recall the real number axiom: if $x \geq 0$ and $y \leq 0$, then $xy \leq 0$.  Thus $x + 2 \geq 0$ and $x - 1 \leq 0$.  
+
+This implies that $(x + 2)(x - 1) \leq 0$.  Expanding $(x + 2)(x - 1)$, we get:
+\begin{center} $(x + 2)(x - 1) = x^2 + x - 2 \leq 0$ \end{center}
+\begin{center} $x^2 + x \leq 2$ \end{center}
+
+Hence the contrapositive is true, then the original is also true.  
+
+\end{proof}
+
+\bigskip
+
+\item \points{4} Prove that for every two positive real numbers $a$ and $b$ that
+
+$$\left(a+b\right)\cdot \left(\frac{1}{a}+\frac{1}{b}\right)\ge 4.$$
+
+(Hint:  use axioms and Theorems 1-2 in Notes 1)
+
+\bigskip
+
+\noindent {\bf Solution:} 
+
+\begin{proof} First of all, lets rearrange the left side of the inequality:
+
+$$\frac{a}{a} + \frac{a}{b} + \frac{b}{a} + \frac{b}{b} \geq 4$$
+
+Let $a$ and $b$ be any positive real numbers.  Then, the inequality can be rewritten as:
+
+$$\frac{a}{b} + \frac{b}{a} + 2 \geq 4$$ or $$\frac{a}{b} + \frac{b}{a} \geq 2$$
+
+We know $\frac{a}{b} > 0$ and $\frac{b}{a} > 0$, so $\frac{a}{b} + \frac{b}{a} \geq 0$.  Then the equivalent inequality $$\frac{a^2 + b^2}{ab} \geq 0$$.  
+
+Following from this: $$\frac{(a^2 + b^2 + 2ab) - 2ab}{ab} \geq 0$$
+
+$$\frac{(a + b)^2}{ab} - \frac{2ab}{ab} \geq 0$$
+
+$$\frac{(a + b)^2}{ab} \geq 2$$
+
+Hence, $\frac{a}{b} + \frac{b}{a} \geq 2$
+
+Therefore, for every two positive real numbers $a$ and $b$ that $\left(a+b\right)\cdot \left(\frac{1}{a}+\frac{1}{b}\right)\ge 4.$
+\end{proof}
+
+\bigskip
+
+\item \points{4} Let $A, B, C$ be sets. Prove that $(A-B)\cup (A-C)=A-(B\cap C)$.
+
+\bigskip
+
+\noindent {\bf Solution:} 
+
+\begin{proof} {\bf Step 1:} 
+$(A - B) \cup (A - C) \subseteq A - (B \cap C)$
+
+Let $x \in (A - B) \cup (A - C)$, then either $x \in (A - B)$ or $x \in (A - C)$.  
+\begin{center} {\bf Case 1:} $x \in (A - B)$
+
+Then $x \in A$ and $x \not\in B$
+
+Since $x \not\in B$ then $x \not\in (B \cap C)$
+
+Since $x \in A$ and $x \not\in (B \cap C)$
+
+Then $x \in A - (B \cap C)$
+\end{center}
+\begin{center} {\bf Case 2:} $x \in (A - C)$
+
+Then $x \in A$ and $x \not\in C$
+
+Since $x \not\in C$ then $x \not\in (B \cap C)$
+
+Since $x \in A$ and $x \not\in (B \cap C)$
+
+Then $x \in A - (B \cap C)$. 
+\end{center}
+
+{\bf Step 2:} 
+$A - (B \cap C) \subseteq (A - B) \cup (A - C)$
+\begin{center}
+Let $x \in A - (B \cap C)$
+
+Then $x \in A$ and $x \not\in (B \cap C)$
+
+Since, $x \not\in (B \cap C)$
+
+Then $x \not\in B$ and $x \not\in C$
+
+So, $x \in A \subseteq (A - B) \cup (A - C)$
+\end{center}
+
+{\bf Therefore}, $(A - B) \cup (A - C) = A - (B \cap C)$.  
+
+\end{proof}
+
+
+\item \points{4} Let $A$ and $B$ be sets. Prove that $A=(A-B)\cup (A \cap B)$. (Hint: if $x\in A$, then there are two cases: $x\in B$ or $x\not\in B$.)
+
+\bigskip
+
+\noindent {\bf Solution:} 
+
+\begin{proof} {\bf Step 1:} Prove that $A \subseteq (A - B) \cup (A \cap B)$
+
+Let $x \in A$, then $x \in B$ or $x \not\in B$.  
+\begin{center} {\bf Case 1:} $x \in B$ 
+
+Since $x \in A$ and $x \in B$, 
+
+Then, $x \in (A \cap B) \subseteq (A - B) \cup (A \cap B)$
+\end{center}
+\begin{center} {\bf Case 2:} $x \not\in B$
+
+Since $x \in A$ and $x \not\in B$,
+
+Then, $x \in (A - B) \subseteq (A - B) \cup (A \cap B)$
+\end{center}
+
+{\bf Step 2:} Prove that $(A - B) \cup (A \cap B) \subseteq A$
+
+Let $x \in (A - B) \cup (A \cap B)$.  
+
+Then either $x \in (A - B)$ or $x \in (A \cap B)$.  
+\begin{center}
+{\bf Case 1:} $x \in (A - B)$
+
+Then $x \in A$ and $x \not\in B$
+
+and $x \in (A - B) \subseteq A$
+\end{center}
+\begin{center}
+{\bf Case 2:} $x \in (A \cap B)$
+
+then $x \in A$ and $x \in B$
+
+So, $x \in (A \cap B) \subseteq A$.  
+\end{center}
+
+{\bf Therefore}, it is proven that $A = (A - B) \cup (A \cap B)$.  
+
+\end{proof}
+
+\item \points{extra 2} Prove that for every three positive real numbers $a$, $b$ and $c$ that
+
+$$\left(a+b+c\right)\cdot \left(\frac{1}{a}+\frac{1}{b}+\frac{1}{c}\right)\ge 9.$$
+
+\item \points{extra 2} Prove that for every three positive real numbers $a$, $b$ and $c$ that
+    $$a^2+b^2+c^2\ge ab+bc+ac.$$
+    
+Note: For problem 4, 7 and 8, you can only use axioms and Theorems 1-2 in Notes 1, but not other more advanced theorems or known inequalities.
+
+\end{enumerate}
+
+\end{document}
+
+
